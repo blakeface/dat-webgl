@@ -4,9 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "knockout": "^3.4.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.9.7"
+  }
 }
