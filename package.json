@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.7.1",
-    "knockout": "^3.4.2"
+    "d3": "^5.7.0"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7"

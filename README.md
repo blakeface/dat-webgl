@@ -5,14 +5,13 @@ Just playing around wiht D3.js and Knockout.js
 I'm using Parcel as a task manager, but you do you.
 
 ## Instructions
-**Start:**
+Basic npm commands for building and starting - Parcel will do the rest:
 
 `$ npm start`
 
-**Build**
-
 `$ npm run build`
 
+_Uses port 1234_
 
 ## Tools
  * Bulma for Style
