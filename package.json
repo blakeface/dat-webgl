@@ -9,11 +9,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "repository": "https://github.com/blakeface/knockout-d3",
+  "author": "Blake Netzeband <blake.netzeband@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.7.1",
-    "d3": "^5.7.0"
+    "d3": "^5.7.0",
+    "node-sass": "^4.9.3"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7"
