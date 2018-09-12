@@ -5,16 +5,23 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.js",
+    "build-http": "parcel build src/index.js",
+    "build-dat": "dat sync -d dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "dat",
+    "distributed web",
+    "d3.js",
+    "parcel"
+  ],
   "repository": "https://github.com/blakeface/knockout-d3",
-  "author": "Blake Netzeband <blake.netzeband@gmail.com>",
+  "author": "Blake Netzeband <blake.netzeband@gmail.com> (https://www.blakenetzeband.com)",
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.7.1",
     "d3": "^5.7.0",
+    "dat": "^13.11.4",
     "node-sass": "^4.9.3"
   },
   "devDependencies": {
