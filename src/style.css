@@ -5,17 +5,12 @@ body {
 	margin: 0;
 }
 
-section {
-	height: 100%;
-	width: 100%;
-}
-
 h1
 , p {
 	padding: 1rem;
 }
 
-#container {
+canvas {
 	position: absolute;
 	top: 0;
 	width: 100%;
