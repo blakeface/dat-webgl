@@ -25,11 +25,13 @@ export function scene() {
 	camera.position.z = 100
 
 	// animate
-	function animate(shape, x, y, z) {
+	function animate(timestamp) {
 		requestAnimationFrame( animate )
+		shapes.forEach(shape => {
+			shape.rotation.x += 0.1
+			shape.rotation.y += 0.1
+		})
 		renderer.render( scene, camera )
 	}
-
-	shapes.forEach(shape => animate(shape))
-	console.log(shapes)
+	animate()
 }
