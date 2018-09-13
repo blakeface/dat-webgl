@@ -6,12 +6,15 @@ const material = new THREE.MeshPhongMaterial({
 })
 
 // box
-const boxGeometry = new THREE.BoxGeometry( 1, 1, 1 )
-const box = new THREE.Mesh( boxGeometry, material )
+const bGeometry = new THREE.BoxGeometry( 1, 1, 1 )
+const box = new THREE.Mesh( bGeometry, material )
 
 // cylinder
-const cylinderGeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 )
-const cylinder = new THREE.Mesh( cylinderGeometry, material )
+const cGeometry = new THREE.CylinderGeometry( 1, 1, 3, 10 )
+const cylinder = new THREE.Mesh( cGeometry, material )
+
+const iGeometry = new THREE.IcosahedronGeometry()
+const icosahedron = new THREE.Mesh( iGeometry, material )
 
 
-export { box, cylinder }
+export { box, cylinder, icosahedron }
