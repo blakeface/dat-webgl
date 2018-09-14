@@ -17,20 +17,23 @@ function getRandomVector(){
 
 export function threeScene() {
 
+	// create canvas element
 	document.body.appendChild( renderer.domElement )
-	scene.add( camera )
+
+	// add lights
+	scene.add( new THREE.AmbientLight( 0x505050 ) )
 	scene.add( spotLight )
 	scene.add( dirLight )
-	scene.add( ground )
 
-	// Add objects
+	// add objects
+	scene.add( ground )
 	shapes.forEach(shape => {
 		scene.add(shape)
 		const vector = getRandomVector()
 		shape.position.set(vector[0], vector[1], vector[2])
 	})
 
-	// Orbit controls
+	// add orbit controls
 	const controls = new orbitControls( camera, renderer.domElement );
 	controls.target.set( 0, 1, 0 );
 	controls.update();
