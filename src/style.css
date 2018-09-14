@@ -1,8 +1,9 @@
 body {
-	background-color: aqua;
+	background: url('assets/zeta-ophiuchi.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
 	height: 100vh;
 	width: 100vw;
-	margin: 0;
 }
 
 h1
@@ -10,9 +11,12 @@ h1
 	padding: 1rem;
 }
 
-canvas {
+canvas, section {
 	position: absolute;
 	top: 0;
-	width: 100%;
-	height: 100%;
+}
+
+section {
+	z-index: 5;
+	color: #f5deb3;
 }

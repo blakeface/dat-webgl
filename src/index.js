@@ -1,5 +1,5 @@
 import { dat } from './js/dat'
-import { scene } from './js/scene'
+import { threeScene } from './js/scene'
 
 dat()
-scene()
+threeScene()

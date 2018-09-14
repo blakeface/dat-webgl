@@ -12,8 +12,9 @@
   "keywords": [
     "dat",
     "distributed web",
-    "d3.js",
-    "parcel"
+    "three.js",
+    "parcel",
+    "webGL"
   ],
   "repository": "https://github.com/blakeface/knockout-d3",
   "author": "Blake Netzeband <blake.netzeband@gmail.com> (https://www.blakenetzeband.com)",
@@ -22,7 +23,8 @@
     "bulma": "^0.7.1",
     "dat": "^13.11.4",
     "node-sass": "^4.9.3",
-    "three": "^0.96.0"
+    "three": "^0.96.0",
+    "three-orbit-controls": "^82.1.0"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7"
