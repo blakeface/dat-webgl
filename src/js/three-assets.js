@@ -16,6 +16,8 @@ renderer.shadowMap.enabled = true
 // camera
 const camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 1000 )
 camera.position.z = 50
+camera.focalLength = 3
+
 
 // spot light
 const spotLight = new THREE.SpotLight( 0xffffff )

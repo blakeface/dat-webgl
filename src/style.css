@@ -1,22 +1,32 @@
 body {
-	background: url('assets/zeta-ophiuchi.jpg');
+	background: url('./assets/zeta-ophiuchi-crystallize.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100vh;
 	width: 100vw;
 }
 
-h1
-, p {
+h1 {
+	font-family: 'Bungee Shade', serif;
+	font-size: 8vw;
 	padding: 1rem;
+	color: #f5deb3;
+}
+
+p
+, a {
+	font-family: 'Space Mono', monospace;
+	padding: 0.5rem;
+	margin: 1rem;
+	background: #f5deb3;
 }
 
 canvas, section {
 	position: absolute;
 	top: 0;
+	left: 0;
 }
 
 section {
 	z-index: 5;
-	color: #f5deb3;
 }

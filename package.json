@@ -20,6 +20,7 @@
   "author": "Blake Netzeband <blake.netzeband@gmail.com> (https://www.blakenetzeband.com)",
   "license": "ISC",
   "dependencies": {
+    "assets": "^3.0.0",
     "bulma": "^0.7.1",
     "dat": "^13.11.4",
     "node-sass": "^4.9.3",

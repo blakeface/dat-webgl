@@ -3,19 +3,38 @@ import OrbitControls from 'three-orbit-controls'
 const orbitControls = OrbitControls(THREE)
 
 import { scene, renderer, camera, spotLight, dirLight, ground } from './three-assets'
-import { box, cylinder, icosahedron, plane } from './shapes'
+import { box, cylinder, hedron, plane } from './shapes'
 
-const shapes = [
+const shapeFunctions = [
 	box,
 	cylinder,
-	icosahedron,
+	hedron,
+	plane,
 ]
+let shapes = []
 
-function getRandomVector(){
-	return Array.from( {length: 3}, () => Math.floor(Math.random() * 10) )
+function getRandomVector() {
+	const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+	return Array.from( {length: 3}, () => Math.floor(Math.random() * 15) * plusOrMinus )
 }
 
-export function threeScene() {
+function getRandomShape(count) {
+	let params = {
+		width: Math.floor(Math.random() * window.innerWidth / (count*10)),
+		height: Math.floor(Math.random() * window.innerHeight / (count*10)),
+	}
+	// depth and radius are dependent on width and height
+	params.depth = (params.width < params.height) ? params.width : params.height
+	params.radius = (params.width < params.height)
+		? Math.floor(params.width / 3)
+		: Math.floor(params.height / 3)
+
+	const shape = shapeFunctions[ Math.floor(Math.random() * shapeFunctions.length) ](params)
+	shapes.push(shape)
+	return shape
+}
+
+export function threeScene(shapeCount) {
 
 	// create canvas element
 	document.body.appendChild( renderer.domElement )
@@ -26,12 +45,13 @@ export function threeScene() {
 	scene.add( dirLight )
 
 	// add objects
-	scene.add( ground )
-	shapes.forEach(shape => {
-		scene.add(shape)
+	for (var i = shapeCount - 1; i >= 0; i--) {
+		const shape = getRandomShape(shapeCount)
+		scene.add( shape )
 		const vector = getRandomVector()
+		console.log(vector)
 		shape.position.set(vector[0], vector[1], vector[2])
-	})
+	}
 
 	// add orbit controls
 	const controls = new orbitControls( camera, renderer.domElement );
