@@ -1,48 +1,83 @@
 import * as THREE from 'three'
 
-const shinyMaterial = new THREE.MeshPhongMaterial({
-	color: 0xff0000,
-  shininess: 100,
-})
-
-// box
-function box(params) {
-	const geometry = new THREE.BoxGeometry(
-		params.width,
-		params.height,
-		params.depth
-	)
-	const box = new THREE.Mesh( geometry, shinyMaterial )
-	box.castShadow = true
-	return box;
+function getMesh(geometry) {
+	const material = getRandomShinyMaterial()
+	const mesh = new THREE.Mesh( geometry, material )
+	mesh.castShadow = true
+	return mesh
 }
 
-// cylinder
-function cylinder(params) {
-	const geometry = new THREE.CylinderGeometry(
-		params.radius, // top
-		params.radius, // bottom
-		params.height,
-	)
-	const cylinder = new THREE.Mesh( geometry, shinyMaterial )
-	cylinder.castShadow = true
-	return cylinder
+function getRandomShinyMaterial() {
+	const shinyMaterial = new THREE.MeshPhongMaterial({
+		color: getRandomHex(),
+	  shininess: 100,
+	})
+	return shinyMaterial
 }
 
-// hedron
-function hedron(params) {
-	const geometry = new THREE.IcosahedronGeometry()
-	const hedron = new THREE.Mesh( geometry, shinyMaterial )
-	hedron.castShadow = true
-	return hedron
+function getRandomHex() {
+	const letters = '0123456789ABCDEF';
+  let hex = '#';
+  for (let i = 0; i < 6; i++) {
+    hex += letters[Math.floor(Math.random() * 16)];
+  }
+  return new THREE.Color(hex)
 }
 
-// plane
-function plane(params) {
-	const geometry = new THREE.PlaneGeometry( params.width, params.height );
-	const plane = new THREE.Mesh( geometry, shinyMaterial );
-	plane.castShadow = true
-	return plane
+const Shapes = {
+	box: function(params) {
+		const geometry = new THREE.BoxGeometry(
+			params.width,
+			params.height,
+			params.depth
+		)
+		return getMesh(geometry)
+	},
+
+	cylinder: function(params) {
+		const geometry = new THREE.CylinderGeometry(
+			params.radius, // top
+			params.radius, // bottom
+			params.height,
+		)
+		return getMesh(geometry)
+	},
+
+	sphere: function(params) {
+		const geometry = new THREE.SphereGeometry( params.radius )
+		return getMesh(geometry)
+	},
+
+	plane: function(params) {
+		const geometry = new THREE.PlaneGeometry( params.width, params.height )
+		return getMesh(geometry)
+	},
+
+	torus: function(params) {
+		const geometry = new THREE.TorusGeometry( params.radius )
+		return getMesh(geometry)
+	},
+
+	torusKnot: function(params) {
+		const geometry = new THREE.TorusKnotGeometry( params.radius )
+		return getMesh(geometry)
+	},
+
+	icosahedron: function(params) {
+		const geometry = new THREE.IcosahedronGeometry()
+		return getMesh(geometry)
+	},
+
+	octahedron: function(params) {
+		const geometry = new THREE.OctahedronGeometry()
+		return getMesh(geometry)
+	},
+
+	tetrahedron: function(params) {
+		const geometry = new THREE.TetrahedronGeometry()
+		return getMesh(geometry)
+	},
+
 }
 
-export { box, cylinder, hedron, plane }
+export default Shapes

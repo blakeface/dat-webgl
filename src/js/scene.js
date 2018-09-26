@@ -3,15 +3,10 @@ import OrbitControls from 'three-orbit-controls'
 const orbitControls = OrbitControls(THREE)
 
 import { scene, renderer, camera, spotLight, dirLight, ground } from './three-assets'
-import { box, cylinder, hedron, plane } from './shapes'
+import Shapes from './shapes'
 
-const shapeFunctions = [
-	box,
-	cylinder,
-	hedron,
-	plane,
-]
-let shapes = []
+let sceneShapes = []
+const protoShapes = Object.values(Shapes)
 
 function getRandomVector() {
 	const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -22,6 +17,7 @@ function getRandomShape(count) {
 	let params = {
 		width: Math.floor(Math.random() * window.innerWidth / (count*10)),
 		height: Math.floor(Math.random() * window.innerHeight / (count*10)),
+
 	}
 	// depth and radius are dependent on width and height
 	params.depth = (params.width < params.height) ? params.width : params.height
@@ -29,8 +25,9 @@ function getRandomShape(count) {
 		? Math.floor(params.width / 3)
 		: Math.floor(params.height / 3)
 
-	const shape = shapeFunctions[ Math.floor(Math.random() * shapeFunctions.length) ](params)
-	shapes.push(shape)
+
+	const shape = protoShapes[ Math.floor(Math.random() * protoShapes.length) ](params)
+	sceneShapes.push(shape)
 	return shape
 }
 
@@ -49,7 +46,6 @@ export function threeScene(shapeCount) {
 		const shape = getRandomShape(shapeCount)
 		scene.add( shape )
 		const vector = getRandomVector()
-		console.log(vector)
 		shape.position.set(vector[0], vector[1], vector[2])
 	}
 
@@ -61,7 +57,7 @@ export function threeScene(shapeCount) {
 	// Animate
 	function animate(timestamp) {
 		requestAnimationFrame( animate )
-		shapes.forEach(shape => {
+		sceneShapes.forEach(shape => {
 			shape.rotation.x += 0.01
 			shape.rotation.y += 0.01
 		})
