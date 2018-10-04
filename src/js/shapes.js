@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import spriteURLs from '../assets/sprite-urls'
+import imageUrls from '../assets/image-urls'
 
 function getMesh(geometry) {
 	const material = Math.random() > .5 ? getGifMaterial() : getRandomShinyMaterial()
@@ -26,8 +26,11 @@ function getRandomHex() {
 }
 
 function getGifMaterial(){
-	const i = Math.floor(Math.random() * spriteURLs.length)
-	const texture = new THREE.TextureLoader().load( spriteURLs[i] )
+	const i = Math.floor(Math.random() * imageUrls.length)
+	const texture = new THREE.TextureLoader().load( imageUrls[i] )
+	texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
+	texture.repeat.set( i + 3, i + 3);
 	return new THREE.MeshBasicMaterial( { map: texture } );
 }
 
