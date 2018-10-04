@@ -25,7 +25,6 @@ function getRandomShape(count) {
 		? Math.floor(params.width / 3)
 		: Math.floor(params.height / 3)
 
-
 	const shape = protoShapes[ Math.floor(Math.random() * protoShapes.length) ](params)
 	sceneShapes.push(shape)
 	return shape
@@ -43,10 +42,15 @@ export function threeScene(shapeCount) {
 
 	// add objects
 	for (var i = shapeCount - 1; i >= 0; i--) {
-		const shape = getRandomShape(shapeCount)
-		scene.add( shape )
-		const vector = getRandomVector()
-		shape.position.set(vector[0], vector[1], vector[2])
+		try {
+			const shape = getRandomShape(shapeCount)
+			scene.add( shape )
+			const vector = getRandomVector()
+			shape.position.set(vector[0], vector[1], vector[2])
+		}
+		catch (e) {
+			console.log(e.message)
+		}
 	}
 
 	// add orbit controls
