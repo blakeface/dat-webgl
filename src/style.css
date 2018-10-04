@@ -4,6 +4,8 @@ body {
 	background-repeat: no-repeat;
 	height: 100vh;
 	width: 100vw;
+	padding: 0;
+	margin: 0;
 }
 
 h1 {
@@ -13,8 +15,7 @@ h1 {
 	color: #f5deb3;
 }
 
-p
-, a {
+p, a {
 	font-family: 'Space Mono', monospace;
 	padding: 0.5rem;
 	margin: 1rem;
@@ -25,6 +26,10 @@ canvas, section {
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+
+canvas {
+	cursor: grab;
 }
 
 section {

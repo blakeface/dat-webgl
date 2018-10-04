@@ -28,9 +28,9 @@ function getRandomHex() {
 function getGifMaterial(){
 	const i = Math.floor(Math.random() * imageUrls.length)
 	const texture = new THREE.TextureLoader().load( imageUrls[i] )
-	texture.wrapS = THREE.RepeatWrapping;
-	texture.wrapT = THREE.RepeatWrapping;
-	texture.repeat.set( i + 3, i + 3);
+	// texture.wrapS = THREE.RepeatWrapping;
+	// texture.wrapT = THREE.RepeatWrapping;
+	// texture.repeat.set( i + 3, i + 3);
 	return new THREE.MeshBasicMaterial( { map: texture } );
 }
 
@@ -58,10 +58,10 @@ const Shapes = {
 		return getMesh(geometry)
 	},
 
-	plane: function(params) {
-		const geometry = new THREE.PlaneGeometry( params.width, params.height )
-		return getMesh(geometry)
-	},
+	// plane: function(params) {
+	// 	const geometry = new THREE.PlaneGeometry( params.width, params.height )
+	// 	return getMesh(geometry)
+	// },
 
 	torus: function(params) {
 		const geometry = new THREE.TorusGeometry( params.radius )

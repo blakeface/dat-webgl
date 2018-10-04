@@ -51,4 +51,14 @@ const ground = new THREE.Mesh(
 ground.rotation.x =- Math.PI / 2
 ground.receiveShadow = true
 
-export { scene, renderer, camera, spotLight, dirLight, ground }
+// package it up and export
+const Assets = {
+	scene: scene,
+	renderer: renderer,
+	camera: camera,
+	spotLight: spotLight,
+	dirLight: dirLight,
+	ground: ground
+}
+
+export default Assets
