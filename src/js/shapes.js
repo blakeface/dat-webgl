@@ -1,7 +1,8 @@
 import * as THREE from 'three'
+import spriteURLs from '../assets/sprite-urls'
 
 function getMesh(geometry) {
-	const material = getRandomShinyMaterial()
+	const material = Math.random() > .5 ? getGifMaterial() : getRandomShinyMaterial()
 	const mesh = new THREE.Mesh( geometry, material )
 	mesh.castShadow = true
 	return mesh
@@ -22,6 +23,12 @@ function getRandomHex() {
     hex += letters[Math.floor(Math.random() * 16)];
   }
   return new THREE.Color(hex)
+}
+
+function getGifMaterial(){
+	const i = Math.floor(Math.random() * spriteURLs.length)
+	const texture = new THREE.TextureLoader().load( spriteURLs[i] )
+	return new THREE.MeshBasicMaterial( { map: texture } );
 }
 
 const Shapes = {
