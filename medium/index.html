@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SURF THE DWEB!</title>
+
+	<!-- COOL STYLES TO KEEP THINGS COOL -->
+	<link href="https://fonts.googleapis.com/css?family=Monoton|Roboto" rel="stylesheet">
+	<style type="text/css">
+		body {
+			background-color: #a1f4d9; display: flex; flex-flow: column nowrap; align-items: center; justify-content: space-around; font-family: 'Roboto', sans-serif; height: 100vh; margin: 0;
+		}
+		.box {
+			font-family: 'Monoton', cursive; border: 1px solid black; border-radius: 5px; padding: 1em; text-align: center;
+		}
+		h1, h2 { font-weight: lighter; }
+		h1 { font-size: 6.5vw; }
+		h2 { font-size: 4.5vw; }
+		.accent { color: #FF9660; }
+		p { font-size: 2vw; }
+		.hidden { display: none; }
+	</style>
+</head>
+
+<body>
+	<section class="box">
+		<h1>Holy <span class="accent">Guacamole</span></h1>
+		<h2>It's The Distributed Web</h2>
+	</section>
+	<section>
+		<p>
+			<!-- IF YOU WANT TO CUSTOMIZE THIS PAGE, ADD WORDS BELOW THIS LINE! -->
+			This is super neat!
+		</p>
+	</section>
+	<section class="dat-stats hidden">
+		<p>So far, this sites has:</p>
+		<ul>
+			<li><span id="dat-downloads"></span> downloads</li>
+			<li><span id="dat-peers"></span> peers</li>
+		</ul>
+		<p>Cool!</p>
+	</section>
+
+	<!-- SOME JAVASCRIPT TO CALL THE EXCLUSIVE BEAKER APIs -->
+	<script>
+	const	url = location.origin
+	const section = document.querySelector('.dat-stats')
+	try	{
+		const archive = new DatArchive( url )
+		const downloads = archive.stat('/index.html')
+		const stats = archive.getInfo().peers
+
+		section.querySelector('#dat-downloads').innerHTML = downloads
+		section.querySelector('#dat-peers').innerHTML = peers
+		section.classList.remove('hidden')
+	}
+	catch (e) {
+		section.classList.add('hidden')
+		console.log(`Bummer. Something didn't work out :( Try to update the url const to your dat url and make sure you're using the Beaker browser`)
+		console.log(e.message)
+	}
+	</script>
+</body>
+</html>

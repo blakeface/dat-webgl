@@ -11,15 +11,28 @@ body {
 h1 {
 	font-family: 'Bungee Shade', serif;
 	font-size: 8vw;
-	padding: 1rem;
+	padding: 0;
+	margin: 0;
 	color: #f5deb3;
+	text-shadow: 2px 2px 5px #000;
 }
 
 p, a {
 	font-family: 'Space Mono', monospace;
+	background: #f5deb3;
+}
+p {
 	padding: 0.5rem;
 	margin: 1rem;
-	background: #f5deb3;
+}
+a {
+	color: #6F9894;
+}
+a:hover {
+	color: #2E6B65;
+}
+a:active {
+	color: #FFF;
 }
 
 canvas, section {
@@ -34,4 +47,5 @@ canvas {
 
 section {
 	z-index: 5;
+	padding: 3em 1em 0em 1em;
 }

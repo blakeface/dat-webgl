@@ -64,11 +64,11 @@ export function threeScene(shapeCount) {
 		sceneShapes.forEach((shape, i) => {
 			const even = (i % 2)
 			shape.rotation.x = even
-				? shape.rotation.x + (0.01 * Number(i))
-				: shape.rotation.x - (0.01 * Number(i))
+				? shape.rotation.x + 0.01
+				: shape.rotation.x - 0.01
 			shape.rotation.y = even
-				? shape.rotation.y + (0.01 * Number(i))
-				: shape.rotation.y - (0.01 * Number(i))
+				? shape.rotation.y + 0.01
+				: shape.rotation.y - 0.01
 		})
 		Assets.renderer.render( Assets.scene, Assets.camera )
 	}

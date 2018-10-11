@@ -1,8 +1,10 @@
 # D3 on the Distributed Web
 
-Just playing around with D3.js and [Dat](https://datproject.org)
+Just playing around with webGL and [Dat](https://datproject.org)
 
 I'm using Parcel as a task manager, but you do you.
+
+I wrote about this experience on [medium](http://medium.com/@blakeface)
 
 ## Instructions for http
 Basic npm commands for building and starting - Parcel will do the rest:
@@ -19,7 +21,6 @@ To sync:
 `$ npm run build-dat`
 
 ## Tools
- * Bulma for Style
  * Parcel as a task manager / bundler
- * D3 for some super sweet animations
+ * Three.js for some super sweet animations
  * Dat to serve on the distributed web
