@@ -14,53 +14,53 @@
 		.box {
 			font-family: 'Monoton', cursive; border: 1px solid black; border-radius: 5px; padding: 1em; text-align: center;
 		}
-		h1, h2 { font-weight: lighter; }
-		h1 { font-size: 6.5vw; }
-		h2 { font-size: 4.5vw; }
-		.accent { color: #FF9660; }
-		p { font-size: 2vw; }
-		.hidden { display: none; }
+		h1, h2 { font-weight: lighter; } h1 { font-size: 6.5vw; } h2 { font-size: 4.5vw; }
+		.accent-1 { color: #FF9660; } .accent-2 { color: #F35B7E; } .hidden { display: none; }
 	</style>
 </head>
 
 <body>
 	<section class="box">
-		<h1>Holy <span class="accent">Guacamole</span></h1>
-		<h2>It's The Distributed Web</h2>
+		<h1>Holy <span class="accent-1">Guacamole</span></h1>
+		<h2>I'm on the <span class="accent-2">Distributed Web</span></h2>
 	</section>
 	<section>
 		<p>
-			<!-- IF YOU WANT TO CUSTOMIZE THIS PAGE, ADD WORDS BELOW THIS LINE! -->
+			<!-- IF YOU WANT TO CUSTOMIZE THIS PAGE, ADD WORDS BELOW THIS LINE... -->
+
 			This is super neat!
+
+			<!-- BUT ABOVE THIS LINE -->
 		</p>
 	</section>
 	<section class="dat-stats hidden">
 		<p>So far, this sites has:</p>
 		<ul>
-			<li><span id="dat-downloads"></span> downloads</li>
-			<li><span id="dat-peers"></span> peers</li>
+			<li><span id="dat-downloads" class="accent-2"></span> downloads</li>
+			<li><span id="dat-peers" class="accent-2"></span> peers</li>
 		</ul>
-		<p>Cool!</p>
 	</section>
 
 	<!-- SOME JAVASCRIPT TO CALL THE EXCLUSIVE BEAKER APIs -->
 	<script>
-	const	url = location.origin
-	const section = document.querySelector('.dat-stats')
-	try	{
-		const archive = new DatArchive( url )
-		const downloads = archive.stat('/index.html')
-		const stats = archive.getInfo().peers
+	(async () => {
+		const	url = location.origin
+		const section = document.querySelector('.dat-stats')
+		try	{
+			const archive = new DatArchive( url )
+			const stats = await archive.stat('/index.html')
+			const info = await archive.getInfo()
 
-		section.querySelector('#dat-downloads').innerHTML = downloads
-		section.querySelector('#dat-peers').innerHTML = peers
-		section.classList.remove('hidden')
-	}
-	catch (e) {
-		section.classList.add('hidden')
-		console.log(`Bummer. Something didn't work out :( Try to update the url const to your dat url and make sure you're using the Beaker browser`)
-		console.log(e.message)
-	}
+			section.querySelector('#dat-downloads').innerHTML = stats.downloaded
+			section.querySelector('#dat-peers').innerHTML = info.peers
+			section.classList.remove('hidden')
+		}
+		catch (e) {
+			section.classList.add('hidden')
+			console.log(`Bummer. Something didn't work out :(\n Try to update the url const to your dat url and make sure you're using the Beaker browser.\n Your currentl url is: ${url}`)
+			console.log(e.message)
+		}
+	})();
 	</script>
 </body>
 </html>
