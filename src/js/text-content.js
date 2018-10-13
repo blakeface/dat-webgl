@@ -1,5 +1,7 @@
-export default (url) => {
+export default (url, isDat) => {
 	const section = document.querySelector('section')
+	const mediumUrl = 'https://medium.com/@blakeface/dat-decentralized-web-tutorial-5ece6238bc84'
+	const gitUrl = 'https://github.com/blakeface/dat-webgl'
 
 	function createElement(type, text, attributes) {
 		// verify attributes types
@@ -19,10 +21,15 @@ export default (url) => {
 		return element
 	}
 
-	const mediumLink = createElement('a', 'here', { href: url, target: '_blank', rel: 'noopener noreferrer' })
-	const mediumP = createElement('p', `How did you get here!? If you're not in the in-crowd, I've recently wrote about the DWeb ${mediumLink.outerHTML}. Read up.`)
+	const mediumLink = createElement('a', 'wrote about the Dweb on Medium', { href: mediumUrl, target: '_blank', rel: 'noopener noreferrer' })
+	const mediumP = createElement('p', `You made it this far, but if you're still a little lost, I've recently ${mediumLink.outerHTML}. Read up.`)
 
-	const description = createElement('p', 'Each shape represents a ')
+	const description = createElement('p', 'Each shape is randomly generated and repreresents a seed. Share amongs your friends and watch the site get weirder and weirder.')
+
+	const sourceCodeLink = createElement('a', 'here', { href: gitUrl, target: '_blank', rel: 'noopener noreferrer' })
+	const sourceCode = createElement('p', `Take a look at the source code ${sourceCodeLink.outerHTML}`)
 
 	section.appendChild(mediumP)
+	section.appendChild(description)
+	section.appendChild(sourceCode)
 }

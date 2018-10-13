@@ -1,0 +1,13 @@
+{
+  "title": "Dat WebGL",
+  "Description": "Experiments with WebGL and the Dat protocol",
+  "author": "Blake Netzeband <blake.netzeband@gmail.com> (https://www.blakenetzeband.com)",
+  "url": "dat://3167d872cec0d2896009a4156409b9e1ce89638d030c42be7c4be02f4e967bf7",
+  "links": {
+    "license": [{"href": "http://creativecommons.org/licenses/by-nc/2.5/", "title": "CC BY-NC 2.5"}],
+    "Github": [{"href": "https://github.com/blakeface/dat-webgl", "title": "Github repository"}]
+  },
+  "experimental": {
+    "apis": ["datPeers"]
+  }
+}

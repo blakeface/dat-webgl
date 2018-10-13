@@ -1,0 +1,17 @@
+{
+  "title": "Dat WebGL",
+  "Description": "Experiments with WebGL and the Dat protocol",
+  "author": "Blake Netzeband <blake.netzeband@gmail.com> (https://www.blakenetzeband.com)",
+  "url": "dat://dat-webgl.hashbase.io/",
+  "links": {
+    "license": [{"href": "https://github.com/blakeface/dat-webgl/blob/master/LICENSE", "title": "ISC License"}],
+    "Github": [{"href": "https://github.com/blakeface/dat-webgl", "title": "Github repository"}]
+  },
+  "experimental": {
+    "apis": ["datPeers"]
+  },
+  "fallback_page": "/404.html",
+  {
+  "web_root": "/dist"
+}
+}
